@@ -221,6 +221,13 @@ public class AppConfig {
         <cache:annotation-driven/>
 </beans>
 ```
-`cache:annotation-driven`与`@EnableCaching`注解允许指定各种选项，这些选项影响通过AOP将相应缓存行为添加到应用中，这种配置其实是有意`@Transactional`配置一致的
+`cache:annotation-driven`与`@EnableCaching`注解允许指定各种选项，这些选项影响通过AOP将相应缓存行为添加到应用中，这种配置其实是有意`@Transactional`配置一致的。
+
+> 注意：默认的缓存注解的advice模式是代理，代理只允许通过代理的方式调用才能拦截；本地在同一个类内部方法直接调用并不能拦截。为更高的拦截机制，可以考虑切换成‘aspectj’,再编译和加载区间嵌入。
+
+> `<cache:annotation-driven/>`只能在同一个定义的应用上下文中寻找`@Cacheable/@CachePut/@CacheEvict/@Caching`。也意味着，如果你是在`WebApplicationContext`为`DispatcherServlet`添加`<cahce:annotation-driver/>`。他只检查在控制器（Controllers）中的beans而非服务。更多信息请查看MVC章节。
+
+
+
 
 官方文档地址：<https://docs.spring.io/spring/docs/5.0.13.RELEASE/spring-framework-reference/integration.html#cache>
