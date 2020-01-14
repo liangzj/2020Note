@@ -227,7 +227,7 @@ public class AppConfig {
 
 > `<cache:annotation-driven/>`只能在同一个定义的应用上下文中寻找`@Cacheable/@CachePut/@CacheEvict/@Caching`。也意味着，如果你是在`WebApplicationContext`为`DispatcherServlet`添加`<cahce:annotation-driver/>`。他只检查在控制器（Controllers）中的beans而非服务。更多信息请查看MVC章节。
 
-
+> 
 
 
 官方文档地址：<https://docs.spring.io/spring/docs/5.0.13.RELEASE/spring-framework-reference/integration.html#cache>
